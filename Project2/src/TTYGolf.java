@@ -11,7 +11,7 @@ public class TTYGolf {
 		System.out.println("2. The Old Course at St. Andrews ");
 		System.out.print("Your choice [1-2]: ");
 		System.out.println("");
-	}
+	}//dfjdfndifidfn
 	
 	public static int getCourse() {
 		int choiceOfCourse;
