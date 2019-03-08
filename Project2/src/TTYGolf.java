@@ -50,7 +50,21 @@ public class TTYGolf {
 		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
 		return (int)val;
 
+	}
+	
+	public static double Putting() { //the method to put the ball
+		Random randGen = new Random();
+		int[] mean = {1,2,4,8,12,16,20,25,30,40};
+		int[] stv = {1,1,2,2,3,3,4,4,5,5};
+		int power;
+		Scanner scnr = new Scanner(System.in);
 		
+		System.out.print("Please enter the power for putting [1-10]: ");
+		power = scnr.nextInt();
+		double mean_adj = mean[power-1] * power / 10.0;
+		double stddev_adj = stv[power-1] * power / 10.0;
+		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
+		return val;
 		
 	}
 	
@@ -81,11 +95,17 @@ public class TTYGolf {
 							System.out.println("You are now "+Math.abs(GYard[i]-totalDistance)+" yards away from the hole");
 					}
 						if(Math.abs(GYard[i]-totalDistance)<=60) {
+							int finalDistance = GYard[i]-totalDistance;
+							while(j==0) {
+								double putDistance = Putting();
+								
 							j=1;
+							
 						}
 				}
 				}
 				
+				}
 			}
 		}
 		
