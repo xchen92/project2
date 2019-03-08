@@ -11,7 +11,7 @@ public class TTYGolf {
 		System.out.println("2. The Old Course at St. Andrews ");
 		System.out.print("Your choice [1-2]: ");
 		System.out.println("");
-	}//dfjdfndifidfn
+	}
 	
 	public static int getCourse() {
 		int choiceOfCourse;
@@ -68,19 +68,19 @@ public class TTYGolf {
 				int[] GYard = gPark.getGParkDistance();
 				int[] GPar = gPark.getGParkPar();
 				for(i=0;i<18;++i) {
+					int totalDistance = 0;
 					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
 					while(j==0) {
 						int distance = hitTheBall();
-						int difference = 0;
-						difference = difference + distance;
+						totalDistance = totalDistance + distance;
 						System.out.println(GTee[i]+" shot.");
 					
-						if(Math.abs(GYard[i]-difference)>=60) {
+						if(Math.abs(GYard[i]-totalDistance)>=60) {
 							System.out.println("you hit the ball "+distance
 									+" yards, nice!");
-							System.out.println("You are now "+Math.abs(GYard[i]-difference)+" yards away from the hole");
+							System.out.println("You are now "+Math.abs(GYard[i]-totalDistance)+" yards away from the hole");
 					}
-						if(Math.abs(GYard[i]-difference)<=60) {
+						if(Math.abs(GYard[i]-totalDistance)<=60) {
 							j=1;
 						}
 				}
