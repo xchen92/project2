@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 public class TTYGolf {
 	
-	public static void printIntro() {
+	public void printIntro() {
 		int choiceOfCourse;
 		System.out.println("Welcome to TTY Golf!");
 		System.out.println("Please select a course: ");
@@ -29,7 +29,6 @@ public class TTYGolf {
 	
 	
 	private static int hitTheBall() { // method to return the distance of the ball
-		// TODO Auto-generated method stub
 		Scanner scnr = new Scanner(System.in);
 		Random randGen = new Random();
 		int club;
@@ -69,7 +68,6 @@ public class TTYGolf {
 	}
 	
 	private static void gamePlay() {
-		// TODO Auto-generated method stub
 		boolean x = true;
 		int i;
 		int j = 0;
@@ -97,18 +95,13 @@ public class TTYGolf {
 						if(Math.abs(GYard[i]-totalDistance)<=60) {
 							int finalDistance = GYard[i]-totalDistance;
 							while(j==0) {
-								double putDistance = Putting();
-								
-							j=1;
-							
-						}
-				}
-				}
-				
-				}
-			}
-		}
-		
+								double putDistance = Putting();	
+								j=1;}
+								}//if
+						}//while
+				}//for
+			}//if
+		}//while	
 	}
 
 
@@ -116,7 +109,7 @@ public class TTYGolf {
 
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// print introduction
 		printIntro();
 		gamePlay();
 		
