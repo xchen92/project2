@@ -97,16 +97,12 @@ public class TTYGolf {
 							int finalDistance = GYard[i]-totalDistance;
 							while(j==0) {
 								double putDistance = Putting();
-								
-							j=1;
-							
-						}
-				}
-				}
-				
-				}
-			}
-		}
+								j=1;}
+							}//if
+						}//while
+				}//for
+			}//if
+		}//while
 		
 	}
 
