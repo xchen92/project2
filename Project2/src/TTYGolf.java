@@ -46,6 +46,8 @@ public class TTYGolf {
 		double mean_adj = mean[club-1] * power / 10.0;
 		double stddev_adj = Stv[club-1] * power / 10.0;
 		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
+		/*FIXME tester, remove afterwards*/
+		System.out.println("test val: "+ val);
 		return (int)val;
 
 	}
@@ -56,21 +58,24 @@ public class TTYGolf {
 		int[] stv = {1,1,2,2,3,3,4,4,5,5};
 		int power;
 		Scanner scnr = new Scanner(System.in);
-		
+		double val;
+		do {
 		System.out.print("Please enter the power for putting [1-10]: ");
 		power = scnr.nextInt();
 		double mean_adj = mean[power-1] * power / 10.0;
 		double stddev_adj = stv[power-1] * power / 10.0;
-		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
+		val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
+		System.out.print("test abs val: "+ Math.abs(val));
+		/*FIXME tester, remove afterwards*/
+		}while(Math.abs(val)>=0.1);
 		return val;
-		
 	}
 	
 	private static void gamePlay() {
 		boolean x = true;
 		int i;//holeNum
 		int j = 0;
-		/*FIXME what is j for?? 
+		/*FIXME what is j for 
 		 * maybe a boolean is better?
 		 * */
 		
