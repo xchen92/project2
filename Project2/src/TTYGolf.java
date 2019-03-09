@@ -75,6 +75,7 @@ public class TTYGolf {
 		int j = 0;
 		while(x) {
 			if(getCourse() == 1) {
+				int shotCount = 0;
 				GeneseePark gPark = new GeneseePark();
 				System.out.println("");
 				System.out.println("You are playing the Genesee Valley Park North Course");
@@ -82,24 +83,41 @@ public class TTYGolf {
 				int[] GYard = gPark.getGParkDistance();
 				int[] GPar = gPark.getGParkPar();
 				for(i=0;i<18;++i) {
+					j = 0;
 					int totalDistance = 0;
+					totalDistance = GYard[i];
 					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
 					while(j==0) {
 						int distance = hitTheBall();
-						totalDistance = totalDistance + distance;
-						System.out.println(GTee[i]+" shot.");
+						System.out.println(GTee[shotCount] + " shot.");
 					
-						if(Math.abs(GYard[i]-totalDistance)>=60) {
-							System.out.println("you hit the ball "+distance
-									+" yards, nice!");
-							System.out.println("You are now "+Math.abs(GYard[i]-totalDistance)+" yards away from the hole");
+						if(Math.abs(totalDistance - distance)>=60) {
+							System.out.println("you hit the ball "+distance+" yards, nice!");
+							System.out.println("You are now "+Math.abs(totalDistance-distance)+" yards away from the hole");
+							totalDistance = Math.abs(totalDistance - distance);
+							shotCount+=1;
 					}
-						if(Math.abs(GYard[i]-totalDistance)<=60) {
-							int finalDistance = GYard[i]-totalDistance;
+						else {
+							System.out.println("You are on the green!");
+							System.out.println("You are now "+Math.abs(totalDistance - distance)+" yards away from the hole");
+							double finalDistance = Math.abs(totalDistance - distance);
 							while(j==0) {
 								double putDistance = Putting();
+								if(Math.abs(finalDistance-putDistance)<=1) {
+									System.out.println(GTee[shotCount] + " shot.");
+									System.out.println("Great! You made it in "+(shotCount+2)+" shots!");
+									j=1;
+								}
+								else {
+									System.out.println(GTee[shotCount] + " shot.");
+									System.out.println("you hit the ball "+putDistance+" yards, nice!");
+									System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" yards away from the hole");
+									finalDistance = Math.abs(finalDistance - putDistance);
+									shotCount+=1;
+								}
+							
 								
-							j=1;
+							
 							
 						}
 				}
