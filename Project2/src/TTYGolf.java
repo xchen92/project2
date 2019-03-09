@@ -72,6 +72,7 @@ public class TTYGolf {
 		
 		while(x) {
 			if(getCourse() == 1) {
+				int shotNum = 0;
 				GeneseePark gPark = new GeneseePark();
 				System.out.println("");
 				System.out.println("You are playing the Genesee Valley Park North Course");
@@ -80,7 +81,6 @@ public class TTYGolf {
 				int[] GPar = gPark.getGParkPar();
 				for(i=0;i<18;++i) {
 					int totalDistance = 0;
-					int shotNum = 0;
 					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
 					while(j==0) {
 						
@@ -118,7 +118,11 @@ public class TTYGolf {
 								}while(putDistance>0.1);
 							j=1;
 							}//if
-						}//while 
+						}//while still in this hole
+					System.out.println("Your ball went into the hole!");
+					System.out.println("");
+					j=0;//next hole :)
+					
 				}//for each hole
 			}//if Genesee Park
 		}//while play game
