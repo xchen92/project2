@@ -28,7 +28,6 @@ public class TTYGolf {
 	
 	
 	private static int hitTheBall() { // method to return the distance of the ball
-		// TODO Auto-generated method stub
 		Scanner scnr = new Scanner(System.in);
 		Random randGen = new Random();
 		int club;
@@ -68,7 +67,6 @@ public class TTYGolf {
 	}
 	
 	private static void gamePlay() {
-		// TODO Auto-generated method stub
 		boolean x = true;
 		int i;
 		int j = 0;
@@ -87,16 +85,25 @@ public class TTYGolf {
 						int distance = hitTheBall();
 						totalDistance = totalDistance + distance;
 						System.out.println(GTee[i]+" shot.");
+						
+						/* FIXME, shotNum is different from holeNum
+						 * add another loop
+						 * */
+						
 					
 						if(Math.abs(GYard[i]-totalDistance)>=60) {
 							System.out.println("you hit the ball "+distance
 									+" yards, nice!");
 							System.out.println("You are now "+Math.abs(GYard[i]-totalDistance)+" yards away from the hole");
 					}
-						if(Math.abs(GYard[i]-totalDistance)<=60) {
+					   if(Math.abs(GYard[i]-totalDistance)<=60) {
 							int finalDistance = GYard[i]-totalDistance;
 							while(j==0) {
+								System.out.println("You are on the Green.");
 								double putDistance = Putting();
+								
+								/* FIXME, need loop for putting
+								 * */
 								j=1;}
 							}//if
 						}//while
