@@ -72,7 +72,7 @@ public class TTYGolf {
 		
 		while(x) {
 			if(getCourse() == 1) {
-				int shotNum = 0;
+				
 				GeneseePark gPark = new GeneseePark();
 				System.out.println("");
 				System.out.println("You are playing the Genesee Valley Park North Course");
@@ -81,6 +81,10 @@ public class TTYGolf {
 				int[] GPar = gPark.getGParkPar();
 				for(i=0;i<18;++i) {
 					int totalDistance = 0;
+					int shotNum = 0;//number of the shot for each hole
+					/*FIXME
+					 *add if statement to decide birdie..
+					 * */
 					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
 					while(j==0) {
 						
@@ -102,7 +106,7 @@ public class TTYGolf {
 					   if(Math.abs(GYard[i]-totalDistance)<=60) {
 							int finalDistance = Math.abs(GYard[i]-totalDistance);
 							double putDistance;
-							/* FIXME, add possibility for directly going to the holw
+							/* FIXME, maybe add possibility for directly going to the hole
 							 * without on green 
 							 * */
 							do{
@@ -119,7 +123,15 @@ public class TTYGolf {
 							j=1;
 							}//if
 						}//while still in this hole
+					
 					System.out.println("Your ball went into the hole!");
+					if (GPar[i]-shotNum ==1 ) {//birdie
+						System.out.println("Damn! You made a birdie!");	
+						}else if (GPar[i]==shotNum) {
+							System.out.println("You made par on this hole");	
+						}else if (GPar[i]>shotNum) {
+							System.out.println("Eh, over par on this hole");
+						}
 					System.out.println("");
 					j=0;//next hole :)
 					
