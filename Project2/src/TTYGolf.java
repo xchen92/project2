@@ -68,8 +68,12 @@ public class TTYGolf {
 	
 	private static void gamePlay() {
 		boolean x = true;
-		int i;
+		int i;//holeNum
 		int j = 0;
+		/*FIXME what is j for?? 
+		 * maybe a boolean is better?
+		 * */
+		
 		while(x) {
 			if(getCourse() == 1) {
 				GeneseePark gPark = new GeneseePark();
@@ -102,14 +106,15 @@ public class TTYGolf {
 								System.out.println("You are on the Green.");
 								double putDistance = Putting();
 								
-								/* FIXME, need loop for putting
+								/* FIXME, need loop for multiple putting
 								 * */
+								
 								j=1;}
 							}//if
-						}//while
-				}//for
-			}//if
-		}//while
+						}//while 
+				}//for each hole
+			}//if Genesee Park
+		}//while play game
 		
 	}
 
