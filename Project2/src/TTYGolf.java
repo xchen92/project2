@@ -2,6 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 public class TTYGolf {
 	
+	
 	public static void printIntro() {
 		int choiceOfCourse;
 		System.out.println("Welcome to TTY Golf!");
@@ -32,13 +33,12 @@ public class TTYGolf {
 		Random randGen = new Random();
 		int club;
 		int power;
-		
+	
 		System.out.print("Choose your club [1-10]: ");
 		club = scnr.nextInt();
-		System.out.println("");
 		System.out.print("Power [1-10]: ");
 		power = scnr.nextInt();
-		System.out.println("");
+
 		
 		Hit hit = new Hit();
 		int[] mean = hit.meanDist();
@@ -46,8 +46,6 @@ public class TTYGolf {
 		double mean_adj = mean[club-1] * power / 10.0;
 		double stddev_adj = Stv[club-1] * power / 10.0;
 		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
-		/*FIXME tester, remove afterwards*/
-		System.out.println("test val: "+ val);
 		return (int)val;
 
 	}
@@ -58,26 +56,19 @@ public class TTYGolf {
 		int[] stv = {1,1,2,2,3,3,4,4,5,5};
 		int power;
 		Scanner scnr = new Scanner(System.in);
-		double val;
-		do {
+	
 		System.out.print("Please enter the power for putting [1-10]: ");
 		power = scnr.nextInt();
 		double mean_adj = mean[power-1] * power / 10.0;
 		double stddev_adj = stv[power-1] * power / 10.0;
-		val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
-		System.out.print("test abs val: "+ Math.abs(val));
-		/*FIXME tester, remove afterwards*/
-		}while(Math.abs(val)>=0.1);
-		return val;
+		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
+		return Math.abs(val);
 	}
 	
 	private static void gamePlay() {
 		boolean x = true;
 		int i;//holeNum
 		int j = 0;
-		/*FIXME what is j for 
-		 * maybe a boolean is better?
-		 * */
 		
 		while(x) {
 			if(getCourse() == 1) {
@@ -89,12 +80,15 @@ public class TTYGolf {
 				int[] GPar = gPark.getGParkPar();
 				for(i=0;i<18;++i) {
 					int totalDistance = 0;
+					int shotNum = 0;
 					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
 					while(j==0) {
-						int distance = hitTheBall();
-						totalDistance = totalDistance + distance;
-						System.out.println(GTee[i]+" shot.");
 						
+						int distance = hitTheBall();
+						shotNum++;
+						totalDistance = totalDistance + distance;
+						System.out.println(shotNum+" shot.");
+						System.out.println("");
 						/* FIXME, shotNum is different from holeNum
 						 * add another loop
 						 * */
@@ -106,15 +100,23 @@ public class TTYGolf {
 							System.out.println("You are now "+Math.abs(GYard[i]-totalDistance)+" yards away from the hole");
 					}
 					   if(Math.abs(GYard[i]-totalDistance)<=60) {
-							int finalDistance = GYard[i]-totalDistance;
-							while(j==0) {
+							int finalDistance = Math.abs(GYard[i]-totalDistance);
+							double putDistance;
+							/* FIXME, add possibility for directly going to the holw
+							 * without on green 
+							 * */
+							do{
 								System.out.println("You are on the Green.");
-								double putDistance = Putting();
+								 putDistance = Putting();
+								 shotNum++;
+								 System.out.println(shotNum+" shot.");
+								 System.out.println("");
 								
-								/* FIXME, need loop for multiple putting
+								
+								/* FIXME, need loop for score calculation;
 								 * */
-								
-								j=1;}
+								}while(putDistance>0.1);
+							j=1;
 							}//if
 						}//while 
 				}//for each hole
