@@ -82,9 +82,6 @@ public class TTYGolf {
 				for(i=0;i<18;++i) {
 					int totalDistance = 0;
 					int shotNum = 0;//number of the shot for each hole
-					/*FIXME
-					 *add if statement to decide birdie..
-					 * */
 					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
 					while(j==0) {
 						
@@ -93,9 +90,6 @@ public class TTYGolf {
 						totalDistance = totalDistance + distance;
 						System.out.println(shotNum+" shot.");
 						System.out.println("");
-						/* FIXME, shotNum is different from holeNum
-						 * add another loop
-						 * */
 						
 					
 						if(Math.abs(GYard[i]-totalDistance)>=60) {
@@ -126,12 +120,14 @@ public class TTYGolf {
 						}//while still in this hole
 					
 					System.out.println("Your ball went into the hole!");
+					
+					//extra credit for Birdie and Bogey
 					if (GPar[i]-shotNum ==1 ) {//birdie
-						System.out.println("Damn! You made a birdie!");	
+						System.out.println("Damn! You made a Birdie!");	
 						}else if (GPar[i]==shotNum) {
 							System.out.println("You made par on this hole");	
 						}else if (GPar[i]==shotNum-1) {
-							System.out.println("Eh, bogey on this hole :(");
+							System.out.println("Eh, Bogey on this hole :(");
 						}else if (GPar[i]<shotNum-1) {
 							System.out.println("Eww, over par!");
 						}
