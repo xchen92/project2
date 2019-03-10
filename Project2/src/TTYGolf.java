@@ -1,4 +1,3 @@
-//jyz
 import java.util.Random;
 import java.util.Scanner;
 public class TTYGolf {
@@ -38,7 +37,6 @@ public class TTYGolf {
 		System.out.print("Power [1-10]: ");
 		power = scnr.nextInt();
 
-		
 		Hit hit = new Hit();
 		int[] mean = hit.meanDist();
 		int[] Stv = hit.SdDist();
@@ -60,24 +58,14 @@ public class TTYGolf {
 		double mean_adj = mean[power-1] * power / 10.0;
 		double stddev_adj = stv[power-1] * power / 10.0;
 		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
-<<<<<<< HEAD
 		return val;
 	}
 	
 	private static void PlayAtGenesee() {
-		// TODO Auto-generated method stub
-=======
-		return Math.abs(val);
-	}
-	
-	private static void gamePlay() {
->>>>>>> a7e51deb27493101ed53d050036d543c9af36b38
 		boolean x = true;
-		int i;//holeNum
+		int i; //holeNum
 		int j = 0;
-		
 		while(x) {
-<<<<<<< HEAD
 			int shotCount = 0;
 			GeneseePark gPark = new GeneseePark();
 			System.out.println("");
@@ -86,6 +74,7 @@ public class TTYGolf {
 			int[] GYard = gPark.getGParkDistance();
 			int[] GPar = gPark.getGParkPar();
 			for(i=0;i<18;++i) {
+				shotCount = 0;//number of the shot for each hole
 				j = 0;
 				int totalDistance = 0;
 				totalDistance = GYard[i];
@@ -109,7 +98,17 @@ public class TTYGolf {
 							if(Math.abs(finalDistance-putDistance)<=1) {
 								System.out.println(GTee[shotCount] + " shot.");
 								System.out.println("Great! You made it in "+(shotCount+2)+" shots!");
-								j=1;
+								if (GPar[i]-shotCount-2 ==1 ) {//birdie
+									System.out.println("Damn! You made a Birdie!");	
+									}else if (GPar[i]==shotCount+2) {
+										System.out.println("You made par on this hole");	
+									}else if (GPar[i]==shotCount+1) {
+										System.out.println("Eh, Bogey on this hole :(");
+									}else if (GPar[i]<shotCount+1) {
+										System.out.println("Eww, over par!");
+									}
+								System.out.println("");
+								j=1;//next hole :)
 							}
 							else {
 								System.out.println(GTee[shotCount] + " shot.");
@@ -126,38 +125,32 @@ public class TTYGolf {
 		}
 	
 	private static void PlayAtOldCourse(){
+		/* FIXME, maybe add possibility for directly going to the hole
+		 * without on green 
+		 * */
 			boolean x = true;
 			int i;
 			int j = 0;
 			while(x) {
+				
 				int shotCount = 0;
 				TheOldCourse oCourse = new TheOldCourse();
-=======
-			if(getCourse() == 1) {
-				
-				GeneseePark gPark = new GeneseePark();
->>>>>>> a7e51deb27493101ed53d050036d543c9af36b38
 				System.out.println("");
 				System.out.println("You are playing at The Old Course at St. Andrews");
 				String[] OTee = oCourse.getOCourseTee();
 				int[] OPar = oCourse.getOCoursePar();
 				int[] OYard = oCourse.getOCourseDistance();
+				
 				for(i=0;i<18;++i) {
+					shotCount = 0;//number of the shot for each hole
+				    j = 0;
 					int totalDistance = 0;
-<<<<<<< HEAD
 					totalDistance = OYard[i];
 					System.out.println("You are at the " + OTee[i]+" tee. " + OYard[i]+" yard, Par "+OPar[i]);
-=======
-					int shotNum = 0;//number of the shot for each hole
 					
-					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
->>>>>>> a7e51deb27493101ed53d050036d543c9af36b38
 					while(j==0) {
-						
 						int distance = hitTheBall();
-<<<<<<< HEAD
-						System.out.println(OTee[shotCount] + " shot.");
-							
+						System.out.println(OTee[shotCount] + " shot.");	
 						if(Math.abs(totalDistance - distance)>=60) {
 							System.out.println("you hit the ball "+distance+" yards, nice!");
 							System.out.println("You are now "+Math.abs(totalDistance-distance)+" yards away from the hole");
@@ -173,7 +166,19 @@ public class TTYGolf {
 								if(Math.abs(finalDistance-putDistance)<=1) {
 									System.out.println(OTee[shotCount] + " shot.");
 									System.out.println("Great! You made it in "+(shotCount+2)+" shots!");
-									j=1;
+			
+									//extra credit for Birdie and Bogey
+									if (OPar[i]-shotCount-2 ==1 ) {//birdie
+										System.out.println("Damn! You made a Birdie!");	
+										}else if (OPar[i]==shotCount+2) {
+											System.out.println("You made par on this hole");	
+										}else if (OPar[i]==shotCount+1) {
+											System.out.println("Eh, Bogey on this hole :(");
+										}else if (OPar[i]<shotCount+1) {
+											System.out.println("Eww, over par!");
+										}
+									System.out.println("");
+									j=1;//next hole :)
 								}
 								else {
 									System.out.println(OTee[shotCount] + " shot.");
@@ -185,64 +190,12 @@ public class TTYGolf {
 								}
 						}
 						}			
-						}
+				}
+			}
 					}
-=======
-						shotNum++;
-						totalDistance = totalDistance + distance;
-						System.out.println(shotNum+" shot.");
-						System.out.println("");
 						
-					
-						if(Math.abs(GYard[i]-totalDistance)>=60) {
-							System.out.println("you hit the ball "+distance
-									+" yards, nice!");
-							System.out.println("You are now "+Math.abs(GYard[i]-totalDistance)+" yards away from the hole");
-							/*FIXME if hit over too this will have an error that u never reach the target*/
-					}
-					   if(Math.abs(GYard[i]-totalDistance)<=60) {
-							int finalDistance = Math.abs(GYard[i]-totalDistance);
-							double putDistance;
-							/* FIXME, maybe add possibility for directly going to the hole
-							 * without on green 
-							 * */
-							do{
-								System.out.println("You are on the Green.");
-								 putDistance = Putting();
-								 shotNum++;
-								 System.out.println("Your putting distance is " + putDistance);
-								 System.out.println(shotNum+" shot.");
-								 System.out.println("");
-								
-								
 								/* FIXME, need loop for score calculation;
 								 * */
-								}while(putDistance>0.1);
-							j=1;
-							}//if
-						}//while still in this hole
-					
-					System.out.println("Your ball went into the hole!");
-					
-					//extra credit for Birdie and Bogey
-					if (GPar[i]-shotNum ==1 ) {//birdie
-						System.out.println("Damn! You made a Birdie!");	
-						}else if (GPar[i]==shotNum) {
-							System.out.println("You made par on this hole");	
-						}else if (GPar[i]==shotNum-1) {
-							System.out.println("Eh, Bogey on this hole :(");
-						}else if (GPar[i]<shotNum-1) {
-							System.out.println("Eww, over par!");
-						}
-					System.out.println("");
-					j=0;//next hole :)
-					
-				}//for each hole
-			}//if Genesee Park
-		}//while play game
-		
->>>>>>> a7e51deb27493101ed53d050036d543c9af36b38
-	}
 
 	public static void main(String[] args) {
 		printIntro();
