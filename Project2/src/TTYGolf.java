@@ -113,6 +113,7 @@ public class TTYGolf {
 								System.out.println("You are on the Green.");
 								 putDistance = Putting();
 								 shotNum++;
+								 System.out.println("Your putting distance is " + putDistance);
 								 System.out.println(shotNum+" shot.");
 								 System.out.println("");
 								
@@ -129,8 +130,10 @@ public class TTYGolf {
 						System.out.println("Damn! You made a birdie!");	
 						}else if (GPar[i]==shotNum) {
 							System.out.println("You made par on this hole");	
-						}else if (GPar[i]>shotNum) {
-							System.out.println("Eh, over par on this hole");
+						}else if (GPar[i]==shotNum-1) {
+							System.out.println("Eh, bogey on this hole :(");
+						}else if (GPar[i]<shotNum-1) {
+							System.out.println("Eww, over par!");
 						}
 					System.out.println("");
 					j=0;//next hole :)
