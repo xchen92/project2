@@ -82,6 +82,7 @@ public class TTYGolf {
 				for(i=0;i<18;++i) {
 					int totalDistance = 0;
 					int shotNum = 0;//number of the shot for each hole
+					
 					System.out.println("You are at the " + GTee[i]+" tee. " + GYard[i]+" yard, Par "+GPar[i]);
 					while(j==0) {
 						
@@ -96,6 +97,7 @@ public class TTYGolf {
 							System.out.println("you hit the ball "+distance
 									+" yards, nice!");
 							System.out.println("You are now "+Math.abs(GYard[i]-totalDistance)+" yards away from the hole");
+							/*FIXME if hit over too this will have an error that u never reach the target*/
 					}
 					   if(Math.abs(GYard[i]-totalDistance)<=60) {
 							int finalDistance = Math.abs(GYard[i]-totalDistance);
