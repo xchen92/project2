@@ -8,21 +8,21 @@ public class TTYGolf {
 		System.out.println("Please select a course: ");
 		System.out.println("1. Genesee Valley Park North Course ");
 		System.out.println("2. The Old Course at St. Andrews ");
-		System.out.print("Your choice [1-2]: ");
+		System.out.println("3. Genesee Valley Park North Course at with a robot ");
+		System.out.print("Your choice [1,2,3]: ");
 		System.out.println("");
 	}
 	
 	public static int getCourse() {
-		int choiceOfCourse;
 		Scanner scnr = new Scanner(System.in);
-		choiceOfCourse = scnr.nextInt();
+		int choiceOfCourse = scnr.nextInt();
 		return choiceOfCourse;
 	}
 	
-	public double keepGoing() { // method to determine if the player wants to continue the game
+	public int keepGoing() { // method to determine if the player wants to continue the game
 		Scanner scnr = new Scanner(System.in);
 		System.out.print("Enter 1 to start another game, 0 to quit: ");
-		double x = scnr.nextDouble();
+		int x = scnr.nextInt();
 		return x;
 	}
 	
@@ -162,11 +162,13 @@ public class TTYGolf {
 							System.out.println("You are on the green!");
 							System.out.println("You are now "+Math.abs(totalDistance - distance)+" yards away from the hole");
 							double finalDistance = Math.abs(totalDistance - distance);
+							shotCount+=1;
 							while(j==0) {
 								double putDistance = Putting();
+								shotCount+=1;
 								if(Math.abs(finalDistance-putDistance)<=1) {
 									System.out.println(OTee[shotCount] + " shot.");
-									System.out.println("Great! You made it in "+(shotCount+2)+" shots!");
+									System.out.println("Great! You made it in "+(shotCount-1)+" shots!");
 			
 									//extra credit for Birdie and Bogey
 									if (OPar[i]-shotCount-2 ==1 ) {//birdie

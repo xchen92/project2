@@ -8,8 +8,11 @@ public class Main {
 		if(TTYGolf.getCourse() == 1) {
 			TTYGolf.PlayAtGenesee();
 		}
-		else {
+		else if (TTYGolf.getCourse() == 2){
 			TTYGolf.PlayAtOldCourse();
+		}
+		else{
+			computerPlayer.PlayAtGenesee();
 		}
 	}
 	
