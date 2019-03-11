@@ -19,14 +19,14 @@ public class TTYGolf {
 		return choiceOfCourse;
 	}
 	
-	public static double keepGoing() { // method to determine if the player wants to continue the game
+	public double keepGoing() { // method to determine if the player wants to continue the game
 		Scanner scnr = new Scanner(System.in);
 		System.out.print("Enter 1 to start another game, 0 to quit: ");
 		double x = scnr.nextDouble();
 		return x;
 	}
 	
-	private static int hitTheBall() { // method to return the distance of the ball
+	public static int hitTheBall() { // method to return the distance of the ball
 		Scanner scnr = new Scanner(System.in);
 		Random randGen = new Random();
 		int club;
@@ -61,7 +61,8 @@ public class TTYGolf {
 		return val;
 	}
 	
-	private static void PlayAtGenesee() {
+	
+	public static void PlayAtGenesee() {
 		boolean x = true;
 		int i; //holeNum
 		int j = 0;
@@ -124,7 +125,7 @@ public class TTYGolf {
 			}
 		}
 	
-	private static void PlayAtOldCourse(){
+	public static void PlayAtOldCourse(){
 		/* FIXME, maybe add possibility for directly going to the hole
 		 * without on green 
 		 * */
@@ -196,15 +197,5 @@ public class TTYGolf {
 						
 								/* FIXME, need loop for score calculation;
 								 * */
-
-	public static void main(String[] args) {
-		printIntro();
-		if(getCourse() == 1) {
-			PlayAtGenesee();
-		}
-		else {
-			PlayAtOldCourse();
-		}
-	}
 }
 	
