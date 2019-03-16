@@ -3,13 +3,17 @@ import java.util.Random;
 public class computerPlayer extends TTYGolf{
 	
 
-	public static void PlayAtGenesee() {
+	public static int PlayAtGenesee() {
 		boolean x = true;
 		int i; //holeNum
 		int j = 0;
 		int rJ = 0;
+		int rScore = 0;
+		int rDifference = 0;
 		Random randGen = new Random();
 		while(x) {
+			scoreDifference = 0;
+			totalScore = 0;
 			int shotCount = 0;
 			int rshotCount =0;
 			GeneseePark gPark = new GeneseePark();
@@ -33,6 +37,7 @@ public class computerPlayer extends TTYGolf{
 			
 				shotCount = 0;//number of the shot for each hole
 				rshotCount=0;
+				
 				j = 0;
 				rJ=0;
 				int totalDistance = 0;
@@ -72,6 +77,15 @@ public class computerPlayer extends TTYGolf{
 									}else {
 										System.out.println("Eagle! OMG!");
 									}
+								scoreDifference = GPar[i] - shotCount - 2;
+								totalScore = totalScore + scoreDifference;
+								if(totalScore<0) {
+									System.out.println("Your score after this hole is: "+Math.abs(totalScore)+" over");
+								}else if(totalScore>0) {
+									System.out.println("Your score after this hole is: "+Math.abs(totalScore)+" under");
+								}else {
+									System.out.println("Your score after this hole is: Par");
+								}
 								System.out.println("");
 								j=1;//ready for next hole :)
 							
@@ -88,6 +102,8 @@ public class computerPlayer extends TTYGolf{
 				}//if
 				
 				if (rJ==0) {//robot starts
+					rScore = 0;
+					rDifference = 0;
 					totalDistance = GYard[i];
 					while(rJ==0) {//when the robot has not finished the hole
 						//remain on this whole
@@ -141,6 +157,15 @@ public class computerPlayer extends TTYGolf{
 									}else {
 										System.out.println("Eagle! OMG!");
 									}
+								rDifference = GPar[i] - rshotCount - 2;
+								rScore = rScore + rDifference;
+								if(rScore<0) {
+									System.out.println("Robot's score after this hole is: "+Math.abs(rScore)+" over");
+								}else if(rScore>0) {
+									System.out.println("Robot's score after this hole is: "+Math.abs(rScore)+" under");
+								}else {
+									System.out.println("Robot's score after this hole is: Par");
+								}
 								
 								System.out.println("");
 								rJ=1;//move on to the next whole
@@ -157,20 +182,29 @@ public class computerPlayer extends TTYGolf{
 					
 					
 				}
-				if(shotCount==rshotCount) {
-					System.out.println("Neither you nor the robot wins");
-				} else if(shotCount<rshotCount) {
-					System.out.println("CONGRATULATIONS! You win!");
+				if(totalScore==rScore) {
+					System.out.println("You have the same score now");
+				} else if(totalScore>rScore) {
+					System.out.println("You are winning right now");
 				}else{
-					System.out.println("Sorry...The robot wins");
+					System.out.println("You are losing right now");
 				}
 				System.out.println("");
 				
 				
 			}//for each hole
+			if(totalScore==rScore) {
+				System.out.println("You are robot have the same final score");
+			} else if(totalScore>rScore) {
+				System.out.println("You won the game!");
+			}else{
+				System.out.println("You lost the game!");
+			}
+			System.out.println("");
 		
 		
 		}//while boolean
+		return totalScore;
 		
 	}
 }

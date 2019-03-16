@@ -88,7 +88,7 @@ public class TTYGolf {
 	
 	
 	public static int PlayAtGenesee() {
-		boolean x = true;
+		boolean x = false;
 		int i; //holeNum
 		int j = 0;
 		scoreDifference = 0;
