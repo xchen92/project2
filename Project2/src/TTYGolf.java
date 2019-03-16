@@ -11,11 +11,17 @@ public class TTYGolf {
 		System.out.println("3. Genesee Valley Park North Course at with a robot ");
 		System.out.print("Your choice [1,2,3]: ");
 		System.out.println("");
+		System.out.println("Enter 0 at anytime to quit the game"); // extra credit quit the game
+		System.out.println("");
 	}
 	
 	public static int getCourse() {
 		Scanner scnr = new Scanner(System.in);
 		int choiceOfCourse = scnr.nextInt();
+		if(choiceOfCourse==0) {
+			System.out.println("See you next time!");
+			System.exit(0);
+		}
 		return choiceOfCourse;
 	}
 	
@@ -23,6 +29,10 @@ public class TTYGolf {
 		Scanner scnr = new Scanner(System.in);
 		System.out.print("Enter 1 to start another game, 0 to quit: ");
 		int x = scnr.nextInt();
+		if(x==0) {
+			System.out.println("See you next time!");
+			System.exit(0);
+		}
 		return x;
 	}
 	
@@ -34,8 +44,16 @@ public class TTYGolf {
 	
 		System.out.print("Choose your club [1-10]: ");
 		club = scnr.nextInt();
+		if(club==0) {
+			System.out.println("See you next time!");
+			System.exit(0);
+		}
 		System.out.print("Power [1-10]: ");
 		power = scnr.nextInt();
+		if(power==0) {
+			System.out.println("See you next time!");
+			System.exit(0);
+		}
 
 		Hit hit = new Hit();
 		int[] mean = hit.meanDist();
@@ -55,6 +73,10 @@ public class TTYGolf {
 	
 		System.out.print("Please enter the power for putting [1-10]: ");
 		power = scnr.nextInt();
+		if(power==0) {
+			System.out.println("See you next time!");
+			System.exit(0);
+		}
 		double mean_adj = mean[power-1] * power / 10.0;
 		double stddev_adj = stv[power-1] * power / 10.0;
 		double val = Math.abs(randGen.nextGaussian() * stddev_adj + mean_adj);
