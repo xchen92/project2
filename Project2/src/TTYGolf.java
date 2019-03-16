@@ -83,13 +83,15 @@ public class TTYGolf {
 				while(j==0) {
 					int distance = hitTheBall();
 					System.out.println(GTee[shotCount] + " shot.");
-					
+						
 					if(Math.abs(totalDistance - distance)>=60) {
 						System.out.println("you hit the ball "+distance+" yards, nice!");
 						System.out.println("You are now "+Math.abs(totalDistance-distance)+" yards away from the hole");
 						totalDistance = Math.abs(totalDistance - distance);
 						shotCount+=1;
-					}
+						
+						}
+					
 					else {
 						System.out.println("You are on the green!");
 						System.out.println("You are now "+Math.abs(totalDistance - distance)+" yards away from the hole");
@@ -97,7 +99,7 @@ public class TTYGolf {
 						while(j==0) {
 							double putDistance = Putting();
 							if(Math.abs(finalDistance-putDistance)<=1) {
-								System.out.println(GTee[shotCount] + " shot.");
+								System.out.println(GTee[shotCount+1] + " shot.");
 								System.out.println("Great! You made it in "+(shotCount+2)+" shots!");
 								if (GPar[i]-shotCount-2 ==1 ) {//birdie
 									System.out.println("Damn! You made a Birdie!");	
@@ -107,12 +109,14 @@ public class TTYGolf {
 										System.out.println("Eh, Bogey on this hole :(");
 									}else if (GPar[i]<shotCount+1) {
 										System.out.println("Eww, over par!");
+									}else {
+										System.out.println("Eagle! OMG!");
 									}
 								System.out.println("");
 								j=1;//next hole :)
 							}
 							else {
-								System.out.println(GTee[shotCount] + " shot.");
+								System.out.println(GTee[shotCount+1] + " shot.");
 								System.out.println("you hit the ball "+putDistance+" yards, nice!");
 								System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" yards away from the hole");
 								finalDistance = Math.abs(finalDistance - putDistance);
@@ -168,7 +172,7 @@ public class TTYGolf {
 								shotCount+=1;
 								if(Math.abs(finalDistance-putDistance)<=1) {
 									System.out.println(OTee[shotCount] + " shot.");
-									System.out.println("Great! You made it in "+(shotCount-1)+" shots!");
+									System.out.println("Great! You made it in "+(shotCount)+" shots!");
 			
 									//extra credit for Birdie and Bogey
 									if (OPar[i]-shotCount-2 ==1 ) {//birdie
@@ -199,5 +203,5 @@ public class TTYGolf {
 						
 								/* FIXME, need loop for score calculation;
 								 * */
+
 }
-	
