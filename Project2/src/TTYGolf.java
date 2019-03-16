@@ -126,6 +126,7 @@ public class TTYGolf {
 				}
 				}
 				}
+			x = false;
 			}
 		}
 	
@@ -166,13 +167,12 @@ public class TTYGolf {
 							System.out.println("You are on the green!");
 							System.out.println("You are now "+Math.abs(totalDistance - distance)+" yards away from the hole");
 							double finalDistance = Math.abs(totalDistance - distance);
-							shotCount+=1;
+						
 							while(j==0) {
 								double putDistance = Putting();
-								shotCount+=1;
 								if(Math.abs(finalDistance-putDistance)<=1) {
-									System.out.println(OTee[shotCount] + " shot.");
-									System.out.println("Great! You made it in "+(shotCount)+" shots!");
+									System.out.println(OTee[shotCount+1] + " shot.");
+									System.out.println("Great! You made it in "+(shotCount+2)+" shots!");
 			
 									//extra credit for Birdie and Bogey
 									if (OPar[i]-shotCount-2 ==1 ) {//birdie
@@ -188,7 +188,7 @@ public class TTYGolf {
 									j=1;//next hole :)
 								}
 								else {
-									System.out.println(OTee[shotCount] + " shot.");
+									System.out.println(OTee[shotCount+1] + " shot.");
 									System.out.println("you hit the ball "+putDistance+" yards, nice!");
 									System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" yards away from the hole");
 									finalDistance = Math.abs(finalDistance - putDistance);

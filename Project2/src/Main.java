@@ -5,10 +5,11 @@ public class Main {
 		
 		//add choice for play with robot in Genesee
 		TTYGolf.printIntro();
-		if(TTYGolf.getCourse() == 1) {
+		int choice = TTYGolf.getCourse();
+		if(choice == 1) {
 			TTYGolf.PlayAtGenesee();
 		}
-		else if (TTYGolf.getCourse() == 2){
+		if (choice == 2){
 			TTYGolf.PlayAtOldCourse();
 		}
 		else{
