@@ -1,6 +1,9 @@
 import java.util.Random;
 import java.util.Scanner;
 public class TTYGolf {
+	public static int totalScore = 0;
+	static int sumPar = 0;
+	static int scoreDifference = 0;
 	
 	
 	public static void printIntro() {
@@ -84,10 +87,12 @@ public class TTYGolf {
 	}
 	
 	
-	public static void PlayAtGenesee() {
+	public static int PlayAtGenesee() {
 		boolean x = true;
 		int i; //holeNum
 		int j = 0;
+		scoreDifference = 0;
+		totalScore = 0;
 		while(x) {
 			int shotCount = 0;
 			GeneseePark gPark = new GeneseePark();
@@ -134,8 +139,20 @@ public class TTYGolf {
 									}else {
 										System.out.println("Eagle! OMG!");
 									}
-								System.out.println("");
+								sumPar = sumPar + GPar[i];
+								scoreDifference = GPar[i] - shotCount - 2;
+								totalScore = totalScore + scoreDifference;
+								if(totalScore<0) {
+									System.out.println("Your score after this hole is: "+Math.abs(totalScore)+" over");
+								}else if(totalScore>0) {
+									System.out.println("Your score after this hole is: "+Math.abs(totalScore)+" under");
+								}else {
+									System.out.println("Your score after this hole is: Par");
+								}
+								
+								
 								j=1;//next hole :)
+								System.out.println("");
 							}
 							else {
 								System.out.println(GTee[shotCount+1] + " shot.");
@@ -149,16 +166,20 @@ public class TTYGolf {
 				}
 				}
 			x = false;
+			
 			}
+		return totalScore;
 		}
 	
-	public static void PlayAtOldCourse(){
+	public static int PlayAtOldCourse(){
 		/* FIXME, maybe add possibility for directly going to the hole
 		 * without on green 
 		 * */
 			boolean x = true;
 			int i;
 			int j = 0;
+			scoreDifference = 0;
+			totalScore = 0;
 			while(x) {
 				
 				int shotCount = 0;
@@ -206,6 +227,15 @@ public class TTYGolf {
 										}else if (OPar[i]<shotCount+1) {
 											System.out.println("Eww, over par!");
 										}
+									scoreDifference = OPar[i] - shotCount - 2;
+									totalScore = totalScore + scoreDifference;
+									if(totalScore<0) {
+										System.out.println("Your score after this hole is: "+Math.abs(totalScore)+" over");
+									}else if(totalScore>0) {
+										System.out.println("Your score after this hole is: "+Math.abs(totalScore)+" under");
+									}else {
+										System.out.println("Your score after this hole is: Par");
+									}
 									System.out.println("");
 									j=1;//next hole :)
 								}
@@ -221,6 +251,7 @@ public class TTYGolf {
 						}			
 				}
 			}
+			return totalScore;
 					}
 						
 								/* FIXME, need loop for score calculation;
