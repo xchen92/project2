@@ -110,7 +110,7 @@ public class TTYGolf {
 					int distance = hitTheBall();
 					System.out.println(GTee[shotCount] + " shot.");
 						
-					if(Math.abs(totalDistance - distance)>=60) {
+					if(Math.abs(totalDistance - distance)>20) {
 						System.out.println("you hit the ball "+distance+" yards, nice!");
 						System.out.println("You are now "+Math.abs(totalDistance-distance)+" yards away from the hole");
 						totalDistance = Math.abs(totalDistance - distance);
@@ -120,8 +120,8 @@ public class TTYGolf {
 					
 					else {
 						System.out.println("You are on the green!");
-						System.out.println("You are now "+Math.abs(totalDistance - distance)+" yards away from the hole");
-						double finalDistance = Math.abs(totalDistance - distance);
+						System.out.println("You are now "+3*Math.abs(totalDistance - distance)+" foot away from the hole");
+						double finalDistance = 3*Math.abs(totalDistance - distance);
 						while(j==0) {
 							double putDistance = Putting();
 							if(Math.abs(finalDistance-putDistance)<=1) {
@@ -155,8 +155,8 @@ public class TTYGolf {
 							}
 							else {
 								System.out.println(GTee[shotCount+1] + " shot.");
-								System.out.println("you hit the ball "+putDistance+" yards, nice!");
-								System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" yards away from the hole");
+								System.out.println("you hit the ball "+putDistance+" foot, nice!");
+								System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" foot away from the hole");
 								finalDistance = Math.abs(finalDistance - putDistance);
 								shotCount+=1;
 							}		
@@ -199,7 +199,7 @@ public class TTYGolf {
 					while(j==0) {
 						int distance = hitTheBall();
 						System.out.println(OTee[shotCount] + " shot.");	
-						if(Math.abs(totalDistance - distance)>=60) {
+						if(Math.abs(totalDistance - distance)>20) {
 							System.out.println("you hit the ball "+distance+" yards, nice!");
 							System.out.println("You are now "+Math.abs(totalDistance-distance)+" yards away from the hole");
 							totalDistance = Math.abs(totalDistance - distance);
@@ -207,8 +207,8 @@ public class TTYGolf {
 							}
 						else {
 							System.out.println("You are on the green!");
-							System.out.println("You are now "+Math.abs(totalDistance - distance)+" yards away from the hole");
-							double finalDistance = Math.abs(totalDistance - distance);
+							System.out.println("You are now "+3*Math.abs(totalDistance - distance)+" foot away from the hole");
+							double finalDistance = 3*Math.abs(totalDistance - distance);
 						
 							while(j==0) {
 								double putDistance = Putting();
@@ -240,8 +240,8 @@ public class TTYGolf {
 								}
 								else {
 									System.out.println(OTee[shotCount+1] + " shot.");
-									System.out.println("you hit the ball "+putDistance+" yards, nice!");
-									System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" yards away from the hole");
+									System.out.println("you hit the ball "+putDistance+" foot, nice!");
+									System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" foot away from the hole");
 									finalDistance = Math.abs(finalDistance - putDistance);
 									shotCount+=1;
 										}		

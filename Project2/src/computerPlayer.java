@@ -51,7 +51,7 @@ public class computerPlayer extends TTYGolf{ // extra credit: robot player
 					System.out.println(GTee[shotCount] + " shot.");
 					
 					
-					if(Math.abs(totalDistance - distance)>=60) {
+					if(Math.abs(totalDistance - distance)>20) {
 						System.out.println("you hit the ball "+distance+" yards, nice!");
 						System.out.println("You are now "+Math.abs(totalDistance-distance)+" yards away from the hole");
 						totalDistance = Math.abs(totalDistance - distance);
@@ -59,8 +59,8 @@ public class computerPlayer extends TTYGolf{ // extra credit: robot player
 						
 					}else {
 						System.out.println("You are on the green!");
-						System.out.println("You are now "+Math.abs(totalDistance - distance)+" yards away from the hole");
-						double finalDistance = Math.abs(totalDistance - distance);
+						System.out.println("You are now "+3*Math.abs(totalDistance - distance)+" foot away from the hole");
+						double finalDistance = 3*Math.abs(totalDistance - distance);
 						while(j==0) {
 							double putDistance = Putting();
 							if(Math.abs(finalDistance-putDistance)<=1) {//if finish the hole
@@ -91,8 +91,8 @@ public class computerPlayer extends TTYGolf{ // extra credit: robot player
 							
 								}else {//still on green
 								System.out.println(GTee[shotCount+1] + " shot.");
-								System.out.println("you hit the ball "+putDistance+" yards, nice!");
-								System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" yards away from the hole");
+								System.out.println("you hit the ball "+putDistance+" foot, nice!");
+								System.out.println("You are now "+Math.abs(finalDistance-putDistance)+" foot away from the hole");
 								finalDistance = Math.abs(finalDistance - putDistance);
 								shotCount+=1;}//else still on green	
 				}//while j==0
@@ -112,13 +112,13 @@ public class computerPlayer extends TTYGolf{ // extra credit: robot player
 					
 					if(Math.abs(totalDistance - rDistance)>=60) {
 						System.out.println("The robot hit the ball "+rDistance+" yards, nice!");
-						System.out.println("The robot is now "+Math.abs(totalDistance-rDistance)+" yards away from the hole");
+						System.out.println("The robot is now "+3*Math.abs(totalDistance-rDistance)+" yards away from the hole");
 						totalDistance = Math.abs(totalDistance - rDistance);
 						rshotCount+=1;
 						}
 					else {
 						System.out.println("The robot is on the green!");
-						System.out.println("The robot is now "+Math.abs(totalDistance - rDistance)+" yards away from the hole");
+						System.out.println("The robot is now "+Math.abs(totalDistance - rDistance)+" foot away from the hole");
 						double rfinalDistance = Math.abs(totalDistance - rDistance);
 						while(rJ==0) {
 							double rputDistance;
@@ -171,8 +171,8 @@ public class computerPlayer extends TTYGolf{ // extra credit: robot player
 								}
 							else {//still on green
 								System.out.println(GTee[rshotCount+1] + " shot.");
-								System.out.println("The robot hits the ball "+rputDistance+" yards, nice!");
-								System.out.println("The robot is now "+Math.abs(rfinalDistance-rputDistance)+" yards away from the hole");
+								System.out.println("The robot hits the ball "+rputDistance+" foot, nice!");
+								System.out.println("The robot is now "+Math.abs(rfinalDistance-rputDistance)+" foot away from the hole");
 								rfinalDistance = Math.abs(rfinalDistance - rputDistance);
 								rshotCount+=1;}//else still on green	
 				}//while rJ==0
