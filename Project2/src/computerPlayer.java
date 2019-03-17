@@ -112,7 +112,7 @@ public class computerPlayer extends TTYGolf{ // extra credit: robot player
 					
 					if(Math.abs(totalDistance - rDistance)>=60) {
 						System.out.println("The robot hit the ball "+rDistance+" yards, nice!");
-						System.out.println("The robot is now "+3*Math.abs(totalDistance-rDistance)+" yards away from the hole");
+						System.out.println("The robot is now "+Math.abs(totalDistance-rDistance)+" yards away from the hole");
 						totalDistance = Math.abs(totalDistance - rDistance);
 						rshotCount+=1;
 						}
