@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class computerPlayer extends TTYGolf{
+public class computerPlayer extends TTYGolf{ // extra credit: robot player
 	
 
 	public static int PlayAtGenesee() {
