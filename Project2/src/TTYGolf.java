@@ -15,7 +15,6 @@ public class TTYGolf {
 		System.out.print("Your choice [1,2,3]: ");
 		System.out.println("");
 		System.out.println("Enter 0 at anytime to quit the game"); // extra credit quit the game
-		System.out.println("");
 	}
 	
 	public static int getCourse() {
@@ -28,9 +27,9 @@ public class TTYGolf {
 		return choiceOfCourse;
 	}
 	
-	public int keepGoing() { // method to determine if the player wants to continue the game
+	public static int keepGoing() { // method to determine if the player wants to continue the game
 		Scanner scnr = new Scanner(System.in);
-		System.out.print("Enter 1 to start another game, 0 to quit: ");
+		System.out.print("Enter 1 to start the game, 0 to quit: ");
 		int x = scnr.nextInt();
 		if(x==0) {
 			System.out.println("See you next time!");
@@ -88,7 +87,7 @@ public class TTYGolf {
 	
 	
 	public static int PlayAtGenesee() {
-		boolean x = false;
+		boolean x = true;
 		int i; //holeNum
 		int j = 0;
 		scoreDifference = 0;
@@ -250,6 +249,7 @@ public class TTYGolf {
 						}
 						}			
 				}
+				x=false;
 			}
 			return totalScore;
 					}

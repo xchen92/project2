@@ -102,8 +102,7 @@ public class computerPlayer extends TTYGolf{
 				}//if
 				
 				if (rJ==0) {//robot starts
-					rScore = 0;
-					rDifference = 0;
+					
 					totalDistance = GYard[i];
 					while(rJ==0) {//when the robot has not finished the hole
 						//remain on this whole
@@ -201,9 +200,10 @@ public class computerPlayer extends TTYGolf{
 				System.out.println("You lost the game!");
 			}
 			System.out.println("");
+			x=false;
 		
-		
-		}//while boolean
+		}
+		x=false;//while boolean
 		return totalScore;
 		
 	}

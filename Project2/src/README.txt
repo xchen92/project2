@@ -1,6 +1,6 @@
 /*
  * Name: Xinyi Chen, Shengyuan Huang, Yize Jin 
- * NetID: xchen92,
+ * NetID: xchen92, shuang48
  * project2
  * LAB MW 18:15-19:30 (Xinyi)
  * lab TA: 
