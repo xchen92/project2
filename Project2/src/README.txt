@@ -1,9 +1,8 @@
 /*
  * Name: Xinyi Chen, Shengyuan Huang, Yize Jin 
- * NetID: xchen92, shuang48
+ * NetID: xchen92, shuang48, yjin25
  * project2
- * LAB MW 18:15-19:30 (Xinyi)
- * lab TA: 
+ * LAB MW 18:15-19:30 (Xinyi) MW 1650-1805(Shengyuan) MW 1650-1805(Yize)
  * Xinyi Chen and Shengyuan Huang, and Yize Jin worked together on this assignment.
  */
  
@@ -43,3 +42,5 @@ Extra credits are met on:
 3 implement a computer opponents that make choices on clubs
 
 All of codes are in the src folder.
+
+game hint: use power 3 when you get close to the hole(distance around 1-3);
