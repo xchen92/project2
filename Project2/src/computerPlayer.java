@@ -20,10 +20,10 @@ public class computerPlayer extends TTYGolf{
 			System.out.println("");
 			System.out.println("You are playing the Genesee Valley Park North Course with a robot");
 			System.out.println("The rules are: ");
-			System.out.println("You play first, and when you finish a hole, ");
-			System.out.println("The robot starts play this hole, and when it finish ");
+			System.out.println("You play first until finishing a hole, ");
+			System.out.println("Then the robot starts playing at the same hole until it finishes ");
 			System.out.println("You move on to the next hole...");
-			System.out.println("in each hole the least shot wins");
+			System.out.println("in each hole who gets the least shot wins");
 			System.out.println("");
 			/*FIXME add more score calculations*/
 			
